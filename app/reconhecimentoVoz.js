@@ -12,7 +12,11 @@ recognition.addEventListener('result', onSpeak)
 
 function onSpeak (e) {
     chute = e.results[0][0].transcript
+    if (chute.endsWith('.')) {
+        chute = chute.slice(0, -1);
+    }
     exibeChuteNaTela(chute)
+    verficaChuteValido(chute)
 }
 
 function exibeChuteNaTela(chute) {
